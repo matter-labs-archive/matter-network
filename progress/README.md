@@ -1,6 +1,6 @@
 # Ignis Plasma Progress Tracker
 
-At the moment Ignis code is not ready to be open for a public (but will be) and is highly monolithic. Nevertheless, we can report some progress on various parts
+At the moment Ignis code is not ready to be open for a public (but will be) and is highly monolithic. Nevertheless, we can report some progress on various parts. Please note that some points are "idealistic" in a sense that it may be not required for a final solution itself, but may provide a lot of additional benefits (like Universal Circuits)
 
 - [ ] State keeper
   - [x] Process the current state
