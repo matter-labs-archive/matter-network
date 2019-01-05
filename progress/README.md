@@ -2,8 +2,6 @@
 
 At the moment Ignis code is not ready to be open for a public (but will be) and is highly monolithic. Nevertheless, we can report some progress on various parts. Please note that some points are "idealistic" in a sense that it may be not required for a final solution itself, but may provide a lot of additional benefits (like Universal Circuits)
 
-# Ignis Progress Tracker
-
 ## SNARKs
 
 ### Circuits (what's proved)
@@ -61,7 +59,7 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
 
 ## Smart contracts
 
-### Base functionality
+### Basic functionality
 
 - [x] Registration
 - [x] Partial exits
