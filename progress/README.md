@@ -1,4 +1,4 @@
-# Progress for various parts of Ignis
+# Ignis Plasma Progress Tracker
 
 At the moment Ignis code is not ready to be open for a public (but will be) and is highly monolithic. Nevertheless, we can report some progress on various parts
 
@@ -19,7 +19,9 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
   - [ ] Trusted setup
     - [x] Full in-memory powers of tau
     - [ ] Memory constrained powers of tau for public ceremony
-  - [ ] Code cleanup and refactoring
+  - [ ] Base code cleanup and refactoring
+  - [ ] Atomic swaps
+  - [ ] Multisig
   - [ ] Universal circuits
 - [ ] Mempool
   - [x] Accept and organize transactions
@@ -37,7 +39,7 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
   - [x] Public key verification - basic (point is on curve)
   - [ ] Public key verification - advanced (point is in a correct group) - may be not required
   - [ ] Partial block commitments
-  - [ ] Multioperator handling
+  - [ ] Operator selection mechanism
 - [ ] Client SDK
   - [ ] Rust
   - [ ] JS
