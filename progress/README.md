@@ -6,25 +6,27 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
 
 ## SNARKs
 
-### Base
+### Circuits (what's proved)
 
-- [ ] zkSNARK statements (what's proved)
-  - [x] Register
-  - [x] Transfer
-  - [x] Exit
-  - [ ] Emergency exit
-- [x] Prover
-  - [x] Proof generation
-  - [x] Proofs are accepted by Ethereum network
-- [ ] Trusted setup
-  - [x] Full in-memory powers of tau
-  - [ ] Memory constrained powers of tau for public ceremony
-- [ ] Base code cleanup and refactoring
+- [x] Register
+- [x] Transfer
+- [x] Exit
+- [ ] Emergency exit
+
+### Prover
+
+- [x] Proof generation
+- [x] Proofs are accepted by Ethereum network
+
+### Trusted setup
+
+- [x] Full in-memory powers of tau
+- [ ] Memory constrained powers of tau for public ceremony
 
 ### Production
 
+- [ ] Base code cleanup and refactoring
 - [ ] Universal circuits
-- [ ] Trusted setup
 
 ### Extensions
 
@@ -33,25 +35,33 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
 
 ## Server
 
-- [ ] Mempool
-  - [x] Accept and organize transactions
-  - [x] Lifetime monitoring
-  - [x] Reorganize after new block assembly attempt
-  - [ ] Optimizations
-  - [ ] Transaction persistence
-- [ ] State keeper
-  - [x] Process the current state
-  - [x] Save the state
-  - [x] Prepare information for prover and commitments 
-  - [ ] Rollbacks and reorgs support
-- [ ] Prover/committer pipelines
-    - [ ] Multi-instance management
-    - [ ] Transactions manager
-- [ ] P2P network layer
+### Mempool
+
+- [x] Accept and organize transactions
+- [x] Lifetime monitoring
+- [x] Reorganize after new block assembly attempt
+- [ ] Optimizations
+- [ ] Transaction persistence
+
+### Networking
+
+- [ ] P2P network protocol
+
+### State keeper
+
+- [x] Process the current state
+- [x] Save the state
+- [x] Prepare information for prover and commitments 
+- [ ] Rollbacks and reorgs support
+
+### Prover/committer pipelines
+
+- [ ] Multi-instance management
+- [ ] Transactions manager
 
 ## Smart contracts
 
-### Base
+### Base functionality
 
 - [x] Registration
 - [x] Partial exits
@@ -71,8 +81,8 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
 
 ## Client SDK
 
-  - [ ] Rust API
-  - [ ] WASM transcompilation
-  - [ ] JavaScript SDK
-  - [ ] Android SDK
-  - [ ] iPhone SDK
+- [ ] Rust API
+- [ ] WASM transcompilation
+- [ ] JavaScript SDK
+- [ ] Android SDK
+- [ ] iPhone SDK
