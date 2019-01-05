@@ -6,7 +6,7 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
   - [x] Process the current state
   - [x] Save the state
   - [x] Prepare information for prover and commitments 
-  - [ ] Rollbacks and reorgs support   
+  - [ ] Rollbacks and reorgs support
 - [ ] zkSNARKs
   - [ ] zkSNARK statements (what's proved)
     - [x] Register
@@ -18,13 +18,16 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
     - [x] Proofs are accepted by Ethereum network
   - [ ] Trusted setup
     - [x] Full in-memory powers of tau
-    - [ ] Memory constrained powers of tau for public ceremony 
+    - [ ] Memory constrained powers of tau for public ceremony
+  - [ ] Code cleanup and refactoring
+  - [ ] Universal circuits
 - [ ] Mempool
   - [x] Accept and organize transactions
   - [x] Lifetime monitoring
   - [x] Reorganize after new block assembly attempt
-  - [ ] Optimize
-  - [ ] Save mempool state to disk  
+  - [ ] Optimizations
+  - [ ] Transaction persistence
+- [ ] P2P network layer
 - [ ] Contract
   - [x] Registration
   - [x] Partial exits
@@ -33,3 +36,9 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
   - [ ] Multioperator mode    
   - [x] Public key verification - basic (point is on curve)
   - [ ] Public key verification - advanced (point is in a correct group) - may be not required
+  - [ ] Partial block commitments
+  - [ ] Multioperator handling
+- [ ] Client SDK
+  - [ ] Rust
+  - [ ] JS
+  - [ ] Golang
