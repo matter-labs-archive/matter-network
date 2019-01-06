@@ -30,6 +30,7 @@ At the moment Ignis code is not ready to be open for a public (but will be) and 
 
 - [ ] Atomic swaps
 - [ ] Multisig
+- [ ] ERC-20 Support
 
 ## Server
 
