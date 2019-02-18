@@ -1,4 +1,4 @@
-# Introducing Ignis: Fire Plasma
+# Introducing Matter Network
 
 ### SNARK-driven Plasma with up to 500 tx/sec goes live on testnet
 
@@ -36,21 +36,21 @@ Specifically, we have chosen a ZK-technique called SNARKs, based on the [Groth p
 
 The biggest challenge to using SNARKs is the requirement of a Trusted Setup, however this problem is solvable. We will write more about it in a separate post.
 
-## Enter Ignis: SNARK-driven Plasma
+## Enter Matter Network: SNARK-driven Plasma
 
-Today, we’re happy to present the first ever fully functional **alpha version of a SNARKs-driven Plasma**, launched live on Rinkeby testnet. We called it *Ignis* -- Fire.
+Today, we’re happy to present the first ever fully functional **alpha version of a SNARKs-driven Plasma**, launched live on Rinkeby testnet
 
-**<a href="https://ignis.thematter.io/" target="_blank">CLICK FOR LIVE DEMO</a>**
+**<a href="https://demo.thematter.io/" target="_blank">CLICK FOR LIVE DEMO</a>**
 
-In Ignis verification of transactions by users is replaced by the following approach: operator(s) proposing blocks must submit a SNARK proving that the new block is correct, which is verified automatically by the smart contract. No incorrect block can ever be included by an operator, so users do not need to always be online and constantly monitor transaction activity.
+In Matter Network verification of transactions by users is replaced by the following approach: operator(s) proposing blocks must submit a SNARK proving that the new block is correct, which is verified automatically by the smart contract. No incorrect block can ever be included by an operator, so users do not need to always be online and constantly monitor transaction activity.
 
-Unfortunately, data availability remains an open challenge which does not seem possible to solve without trade-offs. Ignis follows the onchain data approach [proposed by Vitalik Buterin](https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477). A small piece of data (9 bytes in our case) from every transaction is posted to EVM, in order to guarantee that everybody can reconstruct the Merkle state. 
+Unfortunately, data availability remains an open challenge which does not seem possible to solve without trade-offs. Matter Network follows the onchain data approach [proposed by Vitalik Buterin](https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477). A small piece of data (9 bytes in our case) from every transaction is posted to EVM, in order to guarantee that everybody can reconstruct the Merkle state. 
 
 Technically, this violates the narrow meaning of the term Plasma, because the cost of storing data remains linear to the number of transactions. However, since we achieve a gas cost reduction by a factor of 50 compared to normal token transfers, we believe that using the name Plasma is justified, as the resulting architecture resembles the original construct and achieves its declared goals to a high extent.
 
 ## Technical Description and Design Philosophy
 
-Under the hood, *Ignis* is a [L2 solution](https://ethereum.stackexchange.com/questions/47229/what-exactly-is-ethereums-layer-2) with **account model** and **verifiable** state transitions. What we call *state* is the set of current balances of all the accounts, characterized by a root hash. Verifiable state transition means that correctness of every transaction included in the next block must be proven by SNARKs.
+Under the hood, *Matter Network* is a [L2 solution](https://ethereum.stackexchange.com/questions/47229/what-exactly-is-ethereums-layer-2) with **account model** and **verifiable** state transitions. What we call *state* is the set of current balances of all the accounts, characterized by a root hash. Verifiable state transition means that correctness of every transaction included in the next block must be proven by SNARKs.
 
 E.g. for a transfer transaction between accounts, following checks are performed:
 
@@ -67,19 +67,19 @@ Similar protocol is followed for other types of transactions.
 
 Users submit transactions to one or more operators, who collect them in blocks and submit these to the mainchain along with the SNARK proofs.
 
-User's interaction with *Ignis* can take form in four different operations (transaction types):
+User's interaction with *Matter Network* can take form in four different operations (transaction types):
 
-- **Registration/Deposit**: users can register their public key and obtain a free account number in *Ignis*.
+- **Registration/Deposit**: users can register their public key and obtain a free account number in *Matter Network*.
 - **Transfer**: users can either send a part of his funds to another user.
 - **Partial Exit**: or can send them to the special address of zero. Transfer to zero is considered as a partial exit (different from complete exit described below), so as soon as a block with such transaction is verified, the user can withdraw a corresponding amount using the smart-contract in Ethereum network.
 - **Full Exit**: this is what we call a "complete exit". Such operation withdraws a complete user's balance and un-registers his public key.
-- **Emergency Exit**: in case *Ignis* network experiences a long-term downtime (all participants are not processing transactions), smart-contract goes in "emergency mode" and allows every user to exit full balances using smart-contract.
+- **Emergency Exit**: in case *Matter Network* network experiences a long-term downtime (all participants are not processing transactions), smart-contract goes in "emergency mode" and allows every user to exit full balances using smart-contract.
 
 Deposits and Exits are initiated by the use directly on smart contract via Ethereum transactions, transfers are submitted offchain (e.g. by a peer-to-peer network).
 
 ## Decentralization and Censorship-Resistence
 
-We envision *Ignis* in the future as a decentralized network in multi-operator paradigm from day one. At the current stage we focused on highlighting the SNARKs-related workflow and primitive operations in the live demo, while the multi-operator part is a work in progress.
+We envision *Matter Network* in the future as a decentralized network in multi-operator paradigm from day one. At the current stage we focused on highlighting the SNARKs-related workflow and primitive operations in the live demo, while the multi-operator part is a work in progress.
 
 ### Multi-Operator Model
 
@@ -100,7 +100,7 @@ To make multi-operator model efficient we suggest a 2-phase commit-verify approa
 
 Throughput is the number of transactions per second (TPS) a system can handle.
 
-Theoretical limit of throughput in Ignis is set by its onchain data availability approach: since some data has to be posted onchain for every transaction, an Ethereum block can accomomdate not more than ~500 TPS. In practice gas cost will likely go wild while approach this limit, but we believe that a few hundred TPS is realistic.
+Theoretical limit of throughput in Matter Network is set by its onchain data availability approach: since some data has to be posted onchain for every transaction, an Ethereum block can accomomdate not more than ~500 TPS. In practice gas cost will likely go wild while approach this limit, but we believe that a few hundred TPS is realistic.
 
 There is an ongoing research about alternative, offchain data availability approaches. If it is successful, the limiting factor shifts to the number of transacations which can be packed into a block multiplied by number of SNARK proofs that can be verified in EVM per second.
 
@@ -108,11 +108,11 @@ Currently EVM only supports native primitives for BN256 elliptic curve pairings.
 
 ### Latency and Tx Cost
 
-Transaction costs in Ignis consist of 2 parts: onchain gas costs and costs of offchain proof generation (the latter is independent of the Ethereum gas price).
+Transaction costs in Matter Network consist of 2 parts: onchain gas costs and costs of offchain proof generation (the latter is independent of the Ethereum gas price).
 
-Ignis currently requires a fixed 1K gas per tx onchain.
+Matter Network currently requires a fixed 1K gas per tx onchain.
 
-The offchain cost and latency (time to include a single transaction from the moment of broadcast till final block verification) are interdependent in Ignis. The lower the latency, the more power server is required to compute proofs, thus the cost per tx is higher.
+The offchain cost and latency (time to include a single transaction from the moment of broadcast till final block verification) are interdependent in Matter Network. The lower the latency, the more power server is required to compute proofs, thus the cost per tx is higher.
 
 At the target latency of 5 min at 100 TPS we estimate the offchain part to be approximately 0.001 USD. This estimate is very conservative, further optimizations can push it down.
 
@@ -128,7 +128,7 @@ At the target latency of 5 min at 100 TPS we estimate the offchain part to be ap
 
 - All our work on SNARKs is public on the [github](https://github.com/matterinc).
 - Code examples can be found in our ETH Singapore repository - [Plasma Winter](https://github.com/matterinc/plasma-winter) and [Plasma Cash history compression](https://github.com/matterinc/plasma_cash_history_snark).
-- Complete code of Ignis Alpha will be published after a clean-up in short -- stay tuned!
+- Complete code of Matter Network Alpha will be published after a clean-up in short -- stay tuned!
 
 ## Progress Tracker
 
