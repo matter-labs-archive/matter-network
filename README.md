@@ -1,1 +1,1 @@
-https://bit.ly/matter-network
+https://bit.ly/matter-testnet
